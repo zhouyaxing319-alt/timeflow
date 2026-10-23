@@ -1203,32 +1203,51 @@ body .reveal .slides > section.scene.cinematic-scene.fx-typography.present.activ
 @media(max-width:1100px){#toolbar #current-topic{display:none}#toolbar #help-button,#toolbar #restart-button{display:none}#toolbar #volume{width:80px}}
 @media(max-width:850px){#toolbar #auto-button{display:none}#toolbar #music-controls{gap:4px;padding-left:5px}#toolbar #music-button{padding-left:6px;padding-right:6px;min-width:74px}#toolbar #volume{width:65px;min-width:55px}}
 </style><style id="character-motion-styles">
-/* Character-motion enhancement only; no simulated body motion or scene timing. */
+/* Replace the previous #character-motion-styles block. No page visibility,
+ * transition, scene duration, music or sixth-page compatibility rule changes. */
 .cm-stage{isolation:isolate}
-/* Existing background light overlays remain above the replacement video. */
-.scene.cinematic-scene .cm-stage::before,.scene.cinematic-scene .cm-stage::after{z-index:3;pointer-events:none}
-.cm-stage>.cm-video{position:absolute!important;inset:0!important;display:none!important;
+.scene.cinematic-scene .cm-stage::before,
+.scene.cinematic-scene .cm-stage::after{z-index:3;pointer-events:none}
+.cm-stage>.cm-video{
+ position:absolute!important;inset:0!important;display:none!important;
  width:100%!important;height:100%!important;max-width:100%!important;max-height:100%!important;
  object-fit:var(--cm-video-fit,contain)!important;object-position:center!important;
  transform:none!important;animation:none!important;transition:none!important;
- clip-path:none!important;mask:none!important;filter:none!important;opacity:1!important;
- z-index:2;pointer-events:none;background:#10171c;border-radius:inherit}
+ clip-path:none!important;mask:none!important;-webkit-mask:none!important;
+ filter:none!important;opacity:1!important;visibility:visible!important;
+ z-index:2;pointer-events:none;background:#10171c;border-radius:inherit
+}
 .cm-stage.cm-show-video>.cm-video{display:block!important}
-.cm-stage.cm-show-video>img{visibility:hidden!important}
-.closing-bilingual[data-closing-mode=artwork] .cm-stage>.cm-video{display:none!important}
-.closing-bilingual[data-closing-mode=artwork] .cm-stage>img{visibility:visible!important}
-#toolbar.cm-toolbar #character-motion-button{flex:0 1 auto;max-width:182px;min-width:0;
- white-space:normal;padding:6px 9px;font-size:12px;line-height:1.15;
- border-color:#9ca68c;background:#31433e;color:#f3f0df}
+/* Keep the poster painted underneath the video. In particular, scene six's
+ * mobile patch makes its image visible; do not fight that fallback with opacity
+ * or visibility rules. The actual decoded video is above it at z-index:2. */
+.cm-stage>img{visibility:visible!important;z-index:1!important}
+/* The same complete video remains available in the closing artwork panel.
+ * The old CSS forcing a static image in artwork mode must be removed. */
+.closing-bilingual[data-closing-mode=artwork] .cm-stage>.cm-video{object-fit:contain!important}
+.scene.s6 .cm-stage>.cm-video{filter:none!important;backdrop-filter:none!important}
+@media(max-width:960px),(pointer:coarse){
+ body[data-scene="6"] #resurrection-grace.active .cm-stage{isolation:auto!important}
+}
+#toolbar.cm-toolbar #character-motion-button{
+ flex:0 1 auto;max-width:182px;min-width:0;white-space:normal;
+ padding:6px 9px;font-size:12px;line-height:1.15;
+ border-color:#9ca68c;background:#31433e;color:#f3f0df
+}
 #toolbar.cm-toolbar #character-motion-button[hidden]{display:none!important}
-#toolbar.cm-toolbar #character-motion-button:focus-visible{outline:3px solid #e6d09d;outline-offset:2px}
-#toolbar.cm-toolbar #character-motion-button[aria-pressed=true]{background:#495a47}
-.cm-accessible-status{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
- overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
-@media(max-width:1180px){#toolbar.cm-toolbar #character-motion-button{max-width:140px;font-size:11px;padding:5px 7px}}
+.cm-accessible-status{
+ position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+ overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0
+}
+@media(max-width:850px){
+ #toolbar.cm-toolbar #character-motion-button{max-width:118px;font-size:10px;padding:5px 6px}
+}
+@media(prefers-reduced-motion:reduce){
+ .cm-stage>.cm-video{animation:none!important;transition:none!important}
+}
 
 </style>
-</head><body class="cinematic-four bilingual-edition"><main class="reveal" aria-label="Christianity presentation"><div class="slides"><section data-presenter="1" data-topic="CHRISTIANITY &amp; GOD" class="scene s1 cinematic-scene" data-name="Christianity: knowing God through Jesus" data-faith-symbol="Jesus in stained glass" aria-label="Scene 1: Christianity: knowing God through Jesus"><p class="topic">TOPIC 01 / CHRISTIANITY &amp; GOD</p><p class="part">1 OF 3</p><div class="photo "><img src="Christianity_Assets/8f26bc84674eb9b84bb7c48c.jpg" alt="The original Christian stained-glass image depicting Jesus" decoding="sync"></div><div class="shade"></div><p class="eyebrow enter">A CHRISTIAN INTRODUCTION</p><h1 class="heading enter">Christianity</h1><p class="subheading enter" style="--delay:.35s">Knowing God through Jesus</p><div class="line"></div><p class="narration"><span class="sentence" style="--delay:0.55s">Christianity is a faith centered on Jesus Christ.</span><span class="sentence" style="--delay:0.95s">Christians believe God created us, loves us, and calls us into a relationship with him.</span><span class="sentence" style="--delay:1.35s">The Bible tells the story of that relationship and how Jesus brings hope.</span></p><p class="credit"><a href="https://www.damascusumc.org/believe" target="_blank" rel="noopener noreferrer">Christian belief / Stained glass: Scotch Mist</a></p><p class="folio">01 / 13</p><p class="presenter-tag">Presenter 1 · 1 of 3</p></section><section class="scene s2 cinematic-scene unified" data-name="Knowing God" data-presenter="1" data-topic="CHRISTIANITY &amp; GOD" aria-label="Scene 2: Knowing God"><p class="topic">TOPIC 01 / CHRISTIANITY &amp; GOD</p><p class="part">2 OF 3</p><p class="presenter-tag">Presenter 1</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/42247b8358f7e7b4508dad59.png" alt="An AI-generated artistic depiction of Christ offering compassion and welcome" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Knowing God</h2><p class="u-subtitle enter">Creation. Love. Relationship.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians understand God as the Creator and the source of life.</span><span class="sentence" style="--delay:0.40s">Faith invites people to know God and respond to his love.</span></p><p class="credit"><a href="https://www.damascusumc.org/believe" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">02 / 13</p></section><section class="scene s3 cinematic-scene unified" data-name="One God" data-presenter="1" data-topic="CHRISTIANITY &amp; GOD" aria-label="Scene 3: One God"><p class="topic">TOPIC 01 / CHRISTIANITY &amp; GOD</p><p class="part">3 OF 3</p><p class="presenter-tag">Presenter 1</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/9976115a99ac3cddce4a323f.png" alt="AI-generated symbolic artwork for the Christian belief in one God: Father, Son and Holy Spirit" decoding="sync"><video class="cm-video" id="character-motion-video-3" data-character-motion-video="3" src="Christianity_Assets/jesus-welcome-motion-v1.mp4" muted playsinline preload="metadata" aria-hidden="true" tabindex="-1" disablepictureinpicture disableremoteplayback></video></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">One God</h2><p class="u-subtitle enter">The Trinity</p><div class="u-trinity"><span>Father</span><span>Son</span><span>Holy Spirit</span></div><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians believe in one God: Father, Son, and Holy Spirit.</span><span class="sentence" style="--delay:0.40s">This is the Trinity. God is described as loving and holy.</span><span class="sentence" style="--delay:0.56s">Christians believe his love gives every person dignity, including people who feel unnoticed or unworthy.</span></p><p class="credit"><a href="https://www.damascusumc.org/believe" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">03 / 13</p></section><section class="scene s4 cinematic-scene unified" data-name="Jesus Christ" data-presenter="2" data-topic="JESUS, CROSS &amp; RESURRECTION" aria-label="Scene 4: Jesus Christ"><p class="topic">TOPIC 02 / JESUS, CROSS &amp; RESURRECTION</p><p class="part">1 OF 3</p><p class="presenter-tag">Presenter 2</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/d4aa1ae9e83c7aa763f0d93c.png" alt="An AI-generated artistic depiction of Jesus caring for a hungry crowd, with loaves and fish" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Jesus Christ</h2><p class="u-subtitle enter">God’s Son. Compassion for the hungry.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians believe Jesus is God&#x27;s Son, who became human.</span><span class="sentence" style="--delay:0.40s">In Mark&#x27;s Gospel, he feeds a hungry crowd with five loaves and two fish.</span><span class="sentence" style="--delay:0.56s">Christians see his compassion as a picture of God&#x27;s love: he notices people&#x27;s needs and responds.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Mark%206%3A30-44&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">04 / 13</p></section><section class="scene s5 cinematic-scene unified" data-name="The Cross" data-presenter="2" data-topic="JESUS, CROSS &amp; RESURRECTION" aria-label="Scene 5: The Cross"><p class="topic">TOPIC 02 / JESUS, CROSS &amp; RESURRECTION</p><p class="part">2 OF 3</p><p class="presenter-tag">Presenter 2</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/80d4e6577d40b605ec02461c.png" alt="An AI-generated Christian artistic scene of the cross and the hope of salvation" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">The Cross</h2><p class="u-subtitle enter">Sin. Sacrifice. Reconciliation.</p><img class="u-cross" src="Christianity_Assets/1fb1f7fc2ef5ab9d26173df1.svg" alt="A Christian cross"><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians believe sin damages our relationship with God and one another.</span><span class="sentence" style="--delay:0.40s">Jesus died on the cross for our sins and rose again.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=1%20Corinthians%2015%3A3-4&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">05 / 13</p></section><section id="resurrection-grace" class="scene s6 cinematic-scene unified" data-name="Resurrection &amp; Grace" data-presenter="2" data-topic="JESUS, CROSS &amp; RESURRECTION" aria-label="Scene 6: Resurrection &amp; Grace"><p class="topic">TOPIC 02 / JESUS, CROSS &amp; RESURRECTION</p><p class="part">3 OF 3</p><p class="presenter-tag">Presenter 2</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/ffae53202998981e94616680.png" alt="An AI-generated artistic depiction of resurrection, forgiveness and new life" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Resurrection &amp; Grace</h2><p class="u-subtitle enter">Forgiveness. Hope. New life.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Through him, God offers forgiveness and new life. This gift is called grace: God’s freely given love.</span><span class="sentence" style="--delay:0.40s">His resurrection gives hope of new life.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Ephesians%202%3A8-9&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">06 / 13</p></section><section class="scene s7 cinematic-scene unified" data-name="The Bible &amp; Prayer" data-presenter="3" data-topic="CHRISTIAN LIFE &amp; SYMBOLS" aria-label="Scene 7: The Bible &amp; Prayer"><p class="topic">TOPIC 03 / CHRISTIAN LIFE &amp; SYMBOLS</p><p class="part">1 OF 3</p><p class="presenter-tag">Presenter 3</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/54f34c7a4956f9e46eadd1c9.png" alt="An AI-generated Christian artistic scene of Scripture, prayer, worship and care" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">The Bible &amp; Prayer</h2><p class="u-subtitle enter">Read. Pray. Worship. Care.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians read the Bible to learn about God.</span><span class="sentence" style="--delay:0.40s">They pray with gratitude and bring their worries to him.</span><span class="sentence" style="--delay:0.56s">In church, they worship together and support one another.</span><span class="sentence" style="--delay:0.72s">Faith also shapes daily choices: telling the truth, forgiving others, and caring for people.</span><span class="sentence" style="--delay:0.88s">The Bible includes the Old and New Testaments; the Gospels tell the story of Jesus’ life and teaching.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Acts%202%3A42&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">07 / 13</p></section><section class="scene s8 cinematic-scene unified" data-name="The Cross &amp; Baptism" data-presenter="3" data-topic="CHRISTIAN LIFE &amp; SYMBOLS" aria-label="Scene 8: The Cross &amp; Baptism"><p class="topic">TOPIC 03 / CHRISTIAN LIFE &amp; SYMBOLS</p><p class="part">2 OF 3</p><p class="presenter-tag">Presenter 3</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/24264d7288b42165e6cc70ad.png" alt="AI-generated symbolic scene of Christian baptism beside a river, with a cross" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">The Cross &amp; Baptism</h2><p class="u-subtitle enter">Symbols of Christian belonging</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">The cross points to Jesus&#x27; death and resurrection.</span><span class="sentence" style="--delay:0.40s">Baptism uses water to mark Christian belonging.</span></p><div class="u-symbols"><figure><img src="Christianity_Assets/1fb1f7fc2ef5ab9d26173df1.svg" alt="A standalone Christian cross"><figcaption>CROSS</figcaption></figure><figure><img src="Christianity_Assets/4ff9e3e117a14231b00d7d67.jpg" alt="Christian baptism with water"><figcaption>WATER / BAPTISM</figcaption></figure></div><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Matthew%2028%3A19&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">08 / 13</p></section><section class="scene s9 cinematic-scene unified" data-name="Communion" data-presenter="3" data-topic="CHRISTIAN LIFE &amp; SYMBOLS" aria-label="Scene 9: Communion"><p class="topic">TOPIC 03 / CHRISTIAN LIFE &amp; SYMBOLS</p><p class="part">3 OF 3</p><p class="presenter-tag">Presenter 3</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/cb1091c0d4bd8c6ada707fd9.png" alt="An AI-generated Christian artistic scene with symbols of faith and belonging" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Communion</h2><p class="u-subtitle enter">Remembering Jesus together</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">In Communion, bread and the cup recall Jesus and the Last Supper.</span><span class="sentence" style="--delay:0.40s">Churches understand these practices in different ways.</span></p><div class="u-symbols"><figure><img src="Christianity_Assets/0c1f883737087365a526cdf5.jpg" alt="Bread and cup used in Communion"><figcaption>BREAD & THE CUP</figcaption></figure></div><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Luke%2022%3A19-20&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">09 / 13</p></section><section class="scene s10 cinematic-scene unified" data-name="Love in action" data-presenter="4" data-topic="MERCY &amp; DISCUSSION" aria-label="Scene 10: Love in action"><p class="topic">TOPIC 04 / MERCY &amp; DISCUSSION</p><p class="part">1 OF 3</p><p class="presenter-tag">Presenter 4</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/a89918e49f807ed4d520d5a6.png" alt="An AI-generated symbolic scene of Christ, disciples and modern people sharing food, carrying water and caring for older people; not a World Vision programme photograph" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Love in action</h2><p class="u-subtitle enter">Mercy begins with noticing</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christian love can become practical help.</span><span class="sentence" style="--delay:0.40s">Jesus taught his followers to love their neighbours.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Luke%2010%3A25-37&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">10 / 13</p></section><section class="scene s11 cinematic-scene unified" data-name="Care that reaches people" data-presenter="4" data-topic="MERCY &amp; DISCUSSION" aria-label="Scene 11: Care that reaches people"><p class="topic">TOPIC 04 / MERCY &amp; DISCUSSION</p><p class="part">2 OF 3</p><p class="presenter-tag">Presenter 4</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/91ba3b40b632ffb7cf3f3a8e.png" alt="AI-generated symbolic scene of compassionate service providing clean water; not a World Vision programme photograph" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Care that reaches people</h2><p class="u-subtitle enter">One example of Christian humanitarian work</p><p class="u-eyebrow enter">WORLD VISION / REPORTED 2025 RESULTS</p><p class="u-stat enter" aria-label="2.8 million people"><span data-count="2.8" data-digits="1" data-suffix="M">2.8M</span></p><p class="u-stat-label enter">people reached with safer,<br>more accessible water</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">World Vision, a Christian humanitarian organization, reports reaching 2.8 million people with safer, more accessible water in 2025.</span></p><p class="credit"><a href="https://www.worldvision.org/our-work" target="_blank" rel="noopener noreferrer">World Vision’s self-reported 2025 results / Background: AI-generated artistic depiction</a></p><p class="folio">11 / 13</p></section><section class="scene s12 cinematic-scene unified" data-name="Love our neighbours" data-presenter="4" data-topic="MERCY &amp; DISCUSSION" aria-label="Scene 12: Love our neighbours"><p class="topic">TOPIC 04 / MERCY &amp; DISCUSSION</p><p class="part">3 OF 3</p><p class="presenter-tag">Presenter 4</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/2d1123b48cd811a86baebcf6.png" alt="AI-generated symbolic scene of students welcoming and including a classmate at school" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Love our neighbours</h2><p class="u-subtitle enter">Small choices. Real care.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">At school, care can begin with welcoming someone who feels left out.</span><span class="sentence" style="--delay:0.40s">Listening, including others, and offering help can turn care into action.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Luke%2010%3A25-37&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">12 / 13</p></section><!-- Replace only section 13. Append closing-bilingual.css after existing styles and closing-bilingual.js after the main app. Replace Christianity_Assets/b86bcbb019d6f39c91f1788b.png with the complete new painting's data URI. -->
+</head><body class="cinematic-four bilingual-edition"><main class="reveal" aria-label="Christianity presentation"><div class="slides"><section data-presenter="1" data-topic="CHRISTIANITY &amp; GOD" class="scene s1 cinematic-scene" data-name="Christianity: knowing God through Jesus" data-faith-symbol="Jesus in stained glass" aria-label="Scene 1: Christianity: knowing God through Jesus"><p class="topic">TOPIC 01 / CHRISTIANITY &amp; GOD</p><p class="part">1 OF 3</p><div class="photo "><img src="Christianity_Assets/8f26bc84674eb9b84bb7c48c.jpg" alt="The original Christian stained-glass image depicting Jesus" decoding="sync"></div><div class="shade"></div><p class="eyebrow enter">A CHRISTIAN INTRODUCTION</p><h1 class="heading enter">Christianity</h1><p class="subheading enter" style="--delay:.35s">Knowing God through Jesus</p><div class="line"></div><p class="narration"><span class="sentence" style="--delay:0.55s">Christianity is a faith centered on Jesus Christ.</span><span class="sentence" style="--delay:0.95s">Christians believe God created us, loves us, and calls us into a relationship with him.</span><span class="sentence" style="--delay:1.35s">The Bible tells the story of that relationship and how Jesus brings hope.</span></p><p class="credit"><a href="https://www.damascusumc.org/believe" target="_blank" rel="noopener noreferrer">Christian belief / Stained glass: Scotch Mist</a></p><p class="folio">01 / 13</p><p class="presenter-tag">Presenter 1 · 1 of 3</p></section><section class="scene s2 cinematic-scene unified" data-name="Knowing God" data-presenter="1" data-topic="CHRISTIANITY &amp; GOD" aria-label="Scene 2: Knowing God"><p class="topic">TOPIC 01 / CHRISTIANITY &amp; GOD</p><p class="part">2 OF 3</p><p class="presenter-tag">Presenter 1</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/42247b8358f7e7b4508dad59.png" alt="An AI-generated artistic depiction of Christ offering compassion and welcome" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Knowing God</h2><p class="u-subtitle enter">Creation. Love. Relationship.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians understand God as the Creator and the source of life.</span><span class="sentence" style="--delay:0.40s">Faith invites people to know God and respond to his love.</span></p><p class="credit"><a href="https://www.damascusumc.org/believe" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">02 / 13</p></section><section class="scene s3 cinematic-scene unified" data-name="One God" data-presenter="1" data-topic="CHRISTIANITY &amp; GOD" aria-label="Scene 3: One God"><p class="topic">TOPIC 01 / CHRISTIANITY &amp; GOD</p><p class="part">3 OF 3</p><p class="presenter-tag">Presenter 1</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/9976115a99ac3cddce4a323f.png" alt="AI-generated symbolic artwork for the Christian belief in one God: Father, Son and Holy Spirit" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">One God</h2><p class="u-subtitle enter">The Trinity</p><div class="u-trinity"><span>Father</span><span>Son</span><span>Holy Spirit</span></div><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians believe in one God: Father, Son, and Holy Spirit.</span><span class="sentence" style="--delay:0.40s">This is the Trinity. God is described as loving and holy.</span><span class="sentence" style="--delay:0.56s">Christians believe his love gives every person dignity, including people who feel unnoticed or unworthy.</span></p><p class="credit"><a href="https://www.damascusumc.org/believe" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">03 / 13</p></section><section class="scene s4 cinematic-scene unified" data-name="Jesus Christ" data-presenter="2" data-topic="JESUS, CROSS &amp; RESURRECTION" aria-label="Scene 4: Jesus Christ"><p class="topic">TOPIC 02 / JESUS, CROSS &amp; RESURRECTION</p><p class="part">1 OF 3</p><p class="presenter-tag">Presenter 2</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/d4aa1ae9e83c7aa763f0d93c.png" alt="An AI-generated artistic depiction of Jesus caring for a hungry crowd, with loaves and fish" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Jesus Christ</h2><p class="u-subtitle enter">God’s Son. Compassion for the hungry.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians believe Jesus is God&#x27;s Son, who became human.</span><span class="sentence" style="--delay:0.40s">In Mark&#x27;s Gospel, he feeds a hungry crowd with five loaves and two fish.</span><span class="sentence" style="--delay:0.56s">Christians see his compassion as a picture of God&#x27;s love: he notices people&#x27;s needs and responds.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Mark%206%3A30-44&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">04 / 13</p></section><section class="scene s5 cinematic-scene unified" data-name="The Cross" data-presenter="2" data-topic="JESUS, CROSS &amp; RESURRECTION" aria-label="Scene 5: The Cross"><p class="topic">TOPIC 02 / JESUS, CROSS &amp; RESURRECTION</p><p class="part">2 OF 3</p><p class="presenter-tag">Presenter 2</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/80d4e6577d40b605ec02461c.png" alt="An AI-generated Christian artistic scene of the cross and the hope of salvation" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">The Cross</h2><p class="u-subtitle enter">Sin. Sacrifice. Reconciliation.</p><img class="u-cross" src="Christianity_Assets/1fb1f7fc2ef5ab9d26173df1.svg" alt="A Christian cross"><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians believe sin damages our relationship with God and one another.</span><span class="sentence" style="--delay:0.40s">Jesus died on the cross for our sins and rose again.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=1%20Corinthians%2015%3A3-4&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">05 / 13</p></section><section id="resurrection-grace" class="scene s6 cinematic-scene unified" data-name="Resurrection &amp; Grace" data-presenter="2" data-topic="JESUS, CROSS &amp; RESURRECTION" aria-label="Scene 6: Resurrection &amp; Grace"><p class="topic">TOPIC 02 / JESUS, CROSS &amp; RESURRECTION</p><p class="part">3 OF 3</p><p class="presenter-tag">Presenter 2</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/ffae53202998981e94616680.png" alt="An AI-generated artistic depiction of resurrection, forgiveness and new life" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Resurrection &amp; Grace</h2><p class="u-subtitle enter">Forgiveness. Hope. New life.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Through him, God offers forgiveness and new life. This gift is called grace: God’s freely given love.</span><span class="sentence" style="--delay:0.40s">His resurrection gives hope of new life.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Ephesians%202%3A8-9&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">06 / 13</p></section><section class="scene s7 cinematic-scene unified" data-name="The Bible &amp; Prayer" data-presenter="3" data-topic="CHRISTIAN LIFE &amp; SYMBOLS" aria-label="Scene 7: The Bible &amp; Prayer"><p class="topic">TOPIC 03 / CHRISTIAN LIFE &amp; SYMBOLS</p><p class="part">1 OF 3</p><p class="presenter-tag">Presenter 3</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/54f34c7a4956f9e46eadd1c9.png" alt="An AI-generated Christian artistic scene of Scripture, prayer, worship and care" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">The Bible &amp; Prayer</h2><p class="u-subtitle enter">Read. Pray. Worship. Care.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christians read the Bible to learn about God.</span><span class="sentence" style="--delay:0.40s">They pray with gratitude and bring their worries to him.</span><span class="sentence" style="--delay:0.56s">In church, they worship together and support one another.</span><span class="sentence" style="--delay:0.72s">Faith also shapes daily choices: telling the truth, forgiving others, and caring for people.</span><span class="sentence" style="--delay:0.88s">The Bible includes the Old and New Testaments; the Gospels tell the story of Jesus’ life and teaching.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Acts%202%3A42&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">07 / 13</p></section><section class="scene s8 cinematic-scene unified" data-name="The Cross &amp; Baptism" data-presenter="3" data-topic="CHRISTIAN LIFE &amp; SYMBOLS" aria-label="Scene 8: The Cross &amp; Baptism"><p class="topic">TOPIC 03 / CHRISTIAN LIFE &amp; SYMBOLS</p><p class="part">2 OF 3</p><p class="presenter-tag">Presenter 3</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/24264d7288b42165e6cc70ad.png" alt="AI-generated symbolic scene of Christian baptism beside a river, with a cross" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">The Cross &amp; Baptism</h2><p class="u-subtitle enter">Symbols of Christian belonging</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">The cross points to Jesus&#x27; death and resurrection.</span><span class="sentence" style="--delay:0.40s">Baptism uses water to mark Christian belonging.</span></p><div class="u-symbols"><figure><img src="Christianity_Assets/1fb1f7fc2ef5ab9d26173df1.svg" alt="A standalone Christian cross"><figcaption>CROSS</figcaption></figure><figure><img src="Christianity_Assets/4ff9e3e117a14231b00d7d67.jpg" alt="Christian baptism with water"><figcaption>WATER / BAPTISM</figcaption></figure></div><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Matthew%2028%3A19&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">08 / 13</p></section><section class="scene s9 cinematic-scene unified" data-name="Communion" data-presenter="3" data-topic="CHRISTIAN LIFE &amp; SYMBOLS" aria-label="Scene 9: Communion"><p class="topic">TOPIC 03 / CHRISTIAN LIFE &amp; SYMBOLS</p><p class="part">3 OF 3</p><p class="presenter-tag">Presenter 3</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/cb1091c0d4bd8c6ada707fd9.png" alt="An AI-generated Christian artistic scene with symbols of faith and belonging" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Communion</h2><p class="u-subtitle enter">Remembering Jesus together</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">In Communion, bread and the cup recall Jesus and the Last Supper.</span><span class="sentence" style="--delay:0.40s">Churches understand these practices in different ways.</span></p><div class="u-symbols"><figure><img src="Christianity_Assets/0c1f883737087365a526cdf5.jpg" alt="Bread and cup used in Communion"><figcaption>BREAD & THE CUP</figcaption></figure></div><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Luke%2022%3A19-20&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">09 / 13</p></section><section class="scene s10 cinematic-scene unified" data-name="Love in action" data-presenter="4" data-topic="MERCY &amp; DISCUSSION" aria-label="Scene 10: Love in action"><p class="topic">TOPIC 04 / MERCY &amp; DISCUSSION</p><p class="part">1 OF 3</p><p class="presenter-tag">Presenter 4</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/a89918e49f807ed4d520d5a6.png" alt="An AI-generated symbolic scene of Christ, disciples and modern people sharing food, carrying water and caring for older people; not a World Vision programme photograph" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Love in action</h2><p class="u-subtitle enter">Mercy begins with noticing</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">Christian love can become practical help.</span><span class="sentence" style="--delay:0.40s">Jesus taught his followers to love their neighbours.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Luke%2010%3A25-37&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">10 / 13</p></section><section class="scene s11 cinematic-scene unified" data-name="Care that reaches people" data-presenter="4" data-topic="MERCY &amp; DISCUSSION" aria-label="Scene 11: Care that reaches people"><p class="topic">TOPIC 04 / MERCY &amp; DISCUSSION</p><p class="part">2 OF 3</p><p class="presenter-tag">Presenter 4</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/91ba3b40b632ffb7cf3f3a8e.png" alt="AI-generated symbolic scene of compassionate service providing clean water; not a World Vision programme photograph" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Care that reaches people</h2><p class="u-subtitle enter">One example of Christian humanitarian work</p><p class="u-eyebrow enter">WORLD VISION / REPORTED 2025 RESULTS</p><p class="u-stat enter" aria-label="2.8 million people"><span data-count="2.8" data-digits="1" data-suffix="M">2.8M</span></p><p class="u-stat-label enter">people reached with safer,<br>more accessible water</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">World Vision, a Christian humanitarian organization, reports reaching 2.8 million people with safer, more accessible water in 2025.</span></p><p class="credit"><a href="https://www.worldvision.org/our-work" target="_blank" rel="noopener noreferrer">World Vision’s self-reported 2025 results / Background: AI-generated artistic depiction</a></p><p class="folio">11 / 13</p></section><section class="scene s12 cinematic-scene unified" data-name="Love our neighbours" data-presenter="4" data-topic="MERCY &amp; DISCUSSION" aria-label="Scene 12: Love our neighbours"><p class="topic">TOPIC 04 / MERCY &amp; DISCUSSION</p><p class="part">3 OF 3</p><p class="presenter-tag">Presenter 4</p><div class="unified-bg cinematic-bg"><img src="Christianity_Assets/2d1123b48cd811a86baebcf6.png" alt="AI-generated symbolic scene of students welcoming and including a classmate at school" decoding="sync"></div><div class="u-wash cinematic-wash"></div><h2 class="u-title enter">Love our neighbours</h2><p class="u-subtitle enter">Small choices. Real care.</p><p class="u-speech"><span class="sentence" style="--delay:0.24s">At school, care can begin with welcoming someone who feels left out.</span><span class="sentence" style="--delay:0.40s">Listening, including others, and offering help can turn care into action.</span></p><p class="credit"><a href="https://www.biblegateway.com/passage/?search=Luke%2010%3A25-37&amp;version=KJV" target="_blank" rel="noopener noreferrer">Christian teaching / AI-generated artistic depiction · Sources</a></p><p class="folio">12 / 13</p></section><!-- Replace only section 13. Append closing-bilingual.css after existing styles and closing-bilingual.js after the main app. Replace Christianity_Assets/b86bcbb019d6f39c91f1788b.png with the complete new painting's data URI. -->
 <section class="scene s13 cinematic-scene unified ending-scene closing-bilingual" id="closingBilingual" data-name="Across generations" data-presenter="0" data-topic="SHARED CLOSING" data-closing-root data-closing-mode="verse" aria-label="Scene 13: Across generations / จากรุ่นสู่รุ่น">
   <div class="cb-shell">
     <header class="cb-header">
@@ -2062,26 +2081,306 @@ THE SOFTWARE.</pre></dialog>
   if(!String(config.src).startsWith('data:')) preloadSource().catch(()=>{});
   refresh();
 })();
-</script><script type="application/json" id="character-motion-config">{"status": "approved", "scenes": [{"scene": 3, "src": "Christianity_Assets/jesus-welcome-motion-v1.mp4", "fit": "contain"}]}</script>
+</script><script type="application/json" id="character-motion-config">
+{
+  "version": 2,
+  "enabled": true,
+  "status": "approved",
+  "note": "Thirteen individually selected scenes. Scene one preserves rigid stained glass with physical light motion; scene three reuses the accepted original. All remaining scenes use independent generated character motion. Closing clip ends facing the audience.",
+  "scenes": [
+    {
+      "scene": 1,
+      "title": "Christianity",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-01-kling-v1.mp4",
+      "poster": "Christianity_Assets/8f26bc84674eb9b84bb7c48c.jpg",
+      "fit": "contain",
+      "actionDescription": "Candle flame and naturally changing stained-glass light; do not deform the glass figure.",
+      "evidence": {
+        "sha256": "cad2e161d8077ca7b318bca33b9b59b9e420410a13489831ce976f98e815bd22",
+        "durationSeconds": 5.041667,
+        "width": 1660,
+        "height": 1244,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 2,
+      "title": "Knowing God",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-02-kling-v1.mp4",
+      "poster": "Christianity_Assets/42247b8358f7e7b4508dad59.png",
+      "fit": "contain",
+      "actionDescription": "Jesus reassures an older man, who responds with a grateful smile.",
+      "evidence": {
+        "sha256": "c5667dc79285eaa09852f6cb28333c5d9ff276672322276332da6e100217e127",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 3,
+      "title": "One God",
+      "status": "approved",
+      "src": "Christianity_Assets/jesus-welcome-motion-v1.mp4",
+      "poster": "Christianity_Assets/9976115a99ac3cddce4a323f.png",
+      "fit": "contain",
+      "actionDescription": "Existing accepted clip: Jesus turns and extends a welcoming arm.",
+      "evidence": {
+        "durationSeconds": 5.1,
+        "sha256": "cbc0194a208da8b097eadf952e4a2018e2a5453a5dd39f15ad198e47110d8273"
+      }
+    },
+    {
+      "scene": 4,
+      "title": "Jesus Christ",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-04-kling-v1.mp4",
+      "poster": "Christianity_Assets/d4aa1ae9e83c7aa763f0d93c.png",
+      "fit": "contain",
+      "actionDescription": "Jesus places bread into a child’s hands.",
+      "evidence": {
+        "sha256": "09e6dd72bda60750d27c3d18ee1ce0500f7e5720233898a96e5f3788f8e0cebf",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 5,
+      "title": "The Cross",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-05-kling-v1.mp4",
+      "poster": "Christianity_Assets/80d4e6577d40b605ec02461c.png",
+      "fit": "contain",
+      "actionDescription": "Existing cloth and clouds move gently around the stable cross; any existing witness looks upward.",
+      "evidence": {
+        "sha256": "79844431f65e1718b2234c6ee5a7945a9843b7407b76f21584f3aa679cb9d4bf",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 6,
+      "title": "Resurrection & Grace",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-06-kling-v1.mp4",
+      "poster": "Christianity_Assets/ffae53202998981e94616680.png",
+      "fit": "contain",
+      "actionDescription": "The risen Jesus offers a welcoming hand; the women respond.",
+      "evidence": {
+        "sha256": "4f7b8e0615ce0d615e29bf7e9a318c66ecb7847bfd426c54d98fcdbcf111bc1c",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 7,
+      "title": "The Bible & Prayer",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-07-kling-v1.mp4",
+      "poster": "Christianity_Assets/54f34c7a4956f9e46eadd1c9.png",
+      "fit": "contain",
+      "actionDescription": "The group bows and joins hands in prayer around the open Bible.",
+      "evidence": {
+        "sha256": "d789c31543f694bf425d6573906d45caa97ea483524f287dcde87b23a371f722",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 8,
+      "title": "The Cross & Baptism",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-08-kling-v1.mp4",
+      "poster": "Christianity_Assets/24264d7288b42165e6cc70ad.png",
+      "fit": "contain",
+      "actionDescription": "The minister gently pours a small handful of water as the recipient bows and the river ripples.",
+      "evidence": {
+        "sha256": "e515935f1a674593116318d76a7ced351fb1f426a3c9daa0460a0aad91dc4fc7",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 9,
+      "title": "Communion",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-09-kling-v1.mp4",
+      "poster": "Christianity_Assets/cb1091c0d4bd8c6ada707fd9.png",
+      "fit": "contain",
+      "actionDescription": "Hands break and pass bread; the cup is gently lifted and set down.",
+      "evidence": {
+        "sha256": "395b900f0c5d2db164d20bddf4741d6fcc5b81459d82c4b9af669ab68bff0091",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 10,
+      "title": "Love in action",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-10-kling-v1.mp4",
+      "poster": "Christianity_Assets/a89918e49f807ed4d520d5a6.png",
+      "fit": "contain",
+      "actionDescription": "Jesus hands a cup to an older woman, while a helper supports her.",
+      "evidence": {
+        "sha256": "982af0a1c8bb4d440b1c703d594b3c29917fefdd4000bd2b1089f3f05b89bdf1",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 11,
+      "title": "Care that reaches people",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-11-kling-v1.mp4",
+      "poster": "Christianity_Assets/91ba3b40b632ffb7cf3f3a8e.png",
+      "fit": "contain",
+      "actionDescription": "A volunteer pumps clean water into a bucket; symbolic artwork, not programme footage.",
+      "evidence": {
+        "sha256": "abf3568790a4bc8efcf1ef534d4689c8553a6d5c56cf326d6b5109d8d9dbab68",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 12,
+      "title": "Love our neighbours",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-12-kling-v1.mp4",
+      "poster": "Christianity_Assets/2d1123b48cd811a86baebcf6.png",
+      "fit": "contain",
+      "actionDescription": "Students welcome a classmate with a handshake.",
+      "evidence": {
+        "sha256": "6015b0512380534f55155f2ae1acb6bac52e499297944d54dafaecf339f63c93",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    },
+    {
+      "scene": 13,
+      "title": "Across generations",
+      "status": "approved",
+      "src": "Christianity_Assets/scene-13-kling-v1.mp4",
+      "poster": "Christianity_Assets/b86bcbb019d6f39c91f1788b.png",
+      "fit": "contain",
+      "actionDescription": "The complete group gradually turns toward the audience, ending with encouraging eye contact and open palms; the cross remains in frame.",
+      "evidence": {
+        "sha256": "3c810aae4980ab011343ea2b3068238132bab20d999b77c50f5a978625fefe5c",
+        "durationSeconds": 5.041667,
+        "width": 1916,
+        "height": 1080,
+        "audioStreams": 0,
+        "review": "Complete decode plus six manually inspected key frames. Small AI motion artifacts remain possible."
+      }
+    }
+  ]
+}
+</script>
 <script data-edition-module="character-motion.js">
-/* Real, muted video enhancement for scenes 3 and 13 only. No soundtrack control. */
+/* One real, muted scene video at a time. No navigation, timing or music control.
+ * Replace the previous character-motion.js; do not load both modules.
+ * Input: #character-motion-config JSON, presentation:scene {index, started}.
+ */
 (() => {
   'use strict';
-  const configNode = document.getElementById('character-motion-config');
-  if (!configNode) return;
+  const node = document.getElementById('character-motion-config');
+  if (!node || document.getElementById('character-motion-button')) return;
+  // Retire the previous inline media before any disabled/empty-manifest exit.
+  // Even an entirely pending edition must not leave a hidden legacy downloader.
+  document.querySelectorAll('video[data-character-motion-video]').forEach(old => {
+    old.pause(); old.parentElement?.classList.remove('cm-show-video');
+    old.removeAttribute('src'); old.load(); old.remove();
+  });
   let config;
-  try { config = JSON.parse(configNode.textContent); }
-  catch { console.warn('[CharacterMotion] Invalid configuration; static artwork retained.'); return; }
-  if (config.status !== 'approved' || !Array.isArray(config.scenes)) return;
+  try { config = JSON.parse(node.textContent); }
+  catch { console.warn('[CharacterMotion] Invalid manifest; original artwork retained.'); return; }
+  if (config.enabled === false || !Array.isArray(config.scenes)) return;
   const toolbar = document.getElementById('toolbar');
-  if (!toolbar || document.getElementById('character-motion-button')) return;
-  const preference = matchMedia('(prefers-reduced-motion: reduce)');
-  const states = [];
+  if (!toolbar) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const sections = Array.from(document.querySelectorAll('.reveal .slides > section.scene'));
+  const states = new Map();
+  let current = null;
+  let token = 0;
+  let index = sections.findIndex(scene => scene.classList.contains('active'));
+  let started = index >= 0;
+
+  function safeSource(src) {
+    // Stream same-origin files; never keep thirteen data/blob videos in memory.
+    if (typeof src !== 'string' || !/^Christianity_Assets\/[A-Za-z0-9_./-]+\.mp4$/.test(src)) return null;
+    if (src.split('/').some(part => !part || part === '..' || part === '.')) return null;
+    try {
+      const url = new URL(src, document.baseURI);
+      return url.origin === location.origin ? {src, url: url.href} : null;
+    } catch { return null; }
+  }
+
+  config.scenes.forEach(entry => {
+    const number = Number(entry.scene);
+    if (!Number.isInteger(number) || number < 1 || number > 13 || states.has(number)) return;
+    const scene = sections[number - 1];
+    const stage = scene?.querySelector('.cinematic-bg, .photo');
+    const poster = stage?.querySelector(':scope > img');
+    if (!scene || !stage || !poster) return;
+    const source = entry.status === 'approved' ? safeSource(entry.src) : null;
+    scene.dataset.characterMotionState = source ? 'static' : 'pending';
+    if (!source) return; // Pending media must never replace or hide original art.
+    stage.classList.add('cm-stage');
+    stage.style.setProperty('--cm-video-fit', number === 13 ? 'contain' : entry.fit === 'cover' ? 'cover' : 'contain');
+    states.set(number, {
+      number, scene, stage, poster, ...source,
+      userAllowed: false, wantsPlay: false, showing: false, ended: false, failed: false
+    });
+  });
+  if (!states.size) return;
+
+  // A single element also bounds decoding on iOS/Android.
+  const video = document.createElement('video');
+  video.id = 'character-motion-video';
+  video.className = 'cm-video';
+  video.dataset.characterMotionVideo = 'shared';
+  video.muted = true; video.defaultMuted = true; video.volume = 0;
+  video.playsInline = true; video.preload = 'none';
+  video.loop = false; video.autoplay = false; video.controls = false;
+  video.disablePictureInPicture = true; video.disableRemotePlayback = true;
+  video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
+  video.setAttribute('webkit-playsinline', '');
+  video.setAttribute('aria-hidden', 'true'); video.tabIndex = -1;
+
   const button = document.createElement('button');
   button.id = 'character-motion-button'; button.type = 'button'; button.hidden = true;
-  button.textContent = 'Replay character motion';
-  button.setAttribute('aria-label', button.textContent);
-  button.setAttribute('aria-pressed', 'false');
   button.setAttribute('aria-describedby', 'character-motion-status');
   const status = document.createElement('span');
   status.id = 'character-motion-status'; status.className = 'cm-accessible-status';
@@ -2091,203 +2390,187 @@ THE SOFTWARE.</pre></dialog>
   toolbar.insertBefore(button, before?.parentElement === toolbar ? before : null);
   toolbar.append(status);
 
-  function safeSource(value) {
-    if (typeof value !== 'string' || !value) return null;
-    if (/^data:video\/mp4;base64,[A-Za-z0-9+/=]+$/.test(value)) return value;
-    if (value.includes(':') || value.startsWith('//') || value.includes('\\')) return null;
-    const clean = value.split(/[?#]/, 1)[0];
-    if (clean.split('/').some(part => part === '..')) return null;
-    return value;
-  }
-  function visible(s) {
-    return s.scene.classList.contains('active') && !s.scene.hidden &&
-      s.scene.getAttribute('aria-hidden') !== 'true' && !document.hidden &&
-      !document.querySelector('dialog[open]');
-  }
-  function inArtwork(s) {
-    return s.number === 13 && s.scene.dataset.closingMode === 'artwork';
-  }
-  function announce(s, text) {
-    if (s.active && !inArtwork(s)) status.textContent = text;
-  }
-  function setMode(s, mode) {
-    s.mode = mode;
-    s.scene.dataset.characterMotionState = mode;
+  function mode(s, value) {
+    if (!s) return;
+    s.scene.dataset.characterMotionState = value;
     s.scene.dispatchEvent(new CustomEvent('character-motion:state', {
-      bubbles: true, detail: {scene: s.number, state: mode}
+      bubbles: true, detail: {scene: s.number, state: value}
     }));
   }
   function show(s, value) {
     s.showing = Boolean(value);
     s.stage.classList.toggle('cm-show-video', s.showing);
   }
-  function current() { return states.find(s => s.active && !inArtwork(s)); }
   function updateButton() {
-    const s = current();
-    button.hidden = !s;
-    if (!s) { status.textContent = ''; return; }
-    const label = s.wantsPlay ? 'Pause character motion' : 'Replay character motion';
+    button.hidden = !current || !started;
+    if (!current) { status.textContent = ''; return; }
+    const playing = current.wantsPlay && !video.paused && !video.ended;
+    const label = playing ? 'Pause scene motion' : 'Replay scene motion';
     button.textContent = label; button.setAttribute('aria-label', label);
-    button.setAttribute('aria-pressed', String(Boolean(s.wantsPlay && !s.video.paused)));
-    button.disabled = false;
-    button.title = s.failed ? 'Motion unavailable. Static artwork is shown; click to retry.' :
-      preference.matches && !s.userAllowed ? 'Reduced motion: static artwork is shown. Play only if you choose.' : label;
+    button.setAttribute('aria-pressed', String(playing));
+    button.title = current.failed ? 'Motion unavailable. Original artwork is shown; select to retry.' :
+      reduce.matches && !current.userAllowed ? 'Reduced motion: select to play this scene.' : label;
   }
-  function pause(s, mode) {
-    s.token += 1; s.wantsPlay = false; s.loading = false;
-    s.video.pause();
-    if (mode) setMode(s, mode);
+  function mayPresent() {
+    return started && !document.hidden && !document.querySelector('dialog[open]');
+  }
+  function isAttached(s) {
+    return current === s && video.parentElement === s.stage && video.getAttribute('src') === s.src;
+  }
+  function validFrame(s) {
+    return isAttached(s) && video.currentSrc === s.url && video.readyState >= 2;
+  }
+  function announce(text) { status.textContent = text; }
+  function release() {
+    token += 1;
+    video.pause();
+    if (current) {
+      current.wantsPlay = false; show(current, false); mode(current, 'off-page');
+    }
+    // Remove src and force a load reset before moving this one decoder.
+    video.removeAttribute('src'); video.removeAttribute('poster'); video.load();
+    video.remove(); current = null;
     updateButton();
   }
   function fail(s, error) {
-    pause(s, 'error'); s.failed = true; show(s, false);
-    s.scene.dataset.characterMotionError = error?.name || String(s.video.error?.code || 'media');
-    console.warn('[CharacterMotion] Scene ' + s.number + ': video unavailable; static artwork retained.');
-    announce(s, 'Character motion is unavailable. Static artwork is shown.');
-    updateButton();
+    if (s !== current) return;
+    token += 1; s.wantsPlay = false; s.failed = true;
+    video.pause(); show(s, false); mode(s, 'error');
+    s.scene.dataset.characterMotionError = error?.name || String(video.error?.code || 'media');
+    video.removeAttribute('src'); video.load();
+    console.warn('[CharacterMotion] Scene ' + s.number + ': original artwork retained.');
+    announce('Scene motion is unavailable. Original artwork is shown.'); updateButton();
   }
-  function playFromStart(s, userRequested) {
-    if (!s.active || inArtwork(s) || document.hidden) return;
-    if (preference.matches && !userRequested) {
-      show(s, false); setMode(s, 'reduced-motion'); updateButton(); return;
-    }
-    s.userAllowed = Boolean(userRequested);
-    if (s.failed && !userRequested) { show(s, false); return; }
-    const retry = s.failed;
+  function attach(s) {
+    if (isAttached(s)) return;
+    // This function only runs for the current scene; no hidden video preloading.
+    s.stage.append(video);
+    video.poster = s.poster.currentSrc || s.poster.src;
+    video.preload = 'auto'; video.src = s.src;
+    video.muted = true; video.defaultMuted = true; video.volume = 0;
+    video.load();
+  }
+  function play(s, fromStart) {
+    if (s !== current || !mayPresent() || (reduce.matches && !s.userAllowed)) return;
+    const generation = ++token;
     s.failed = false; delete s.scene.dataset.characterMotionError;
-    s.token += 1; const token = s.token;
-    s.video.pause(); s.wantsPlay = true; s.loading = true; s.ended = false;
-    show(s, false); setMode(s, 'loading');
-    s.video.muted = true; s.video.defaultMuted = true; s.video.volume = 0;
-    if (retry) s.video.load();
-    try { if (s.video.readyState >= 1) s.video.currentTime = 0; }
-    catch { /* Initial metadata is still pending; natural start remains zero. */ }
-    updateButton();
-    let promise;
-    try { promise = s.video.play(); }
+    s.ended = false; s.wantsPlay = true;
+    attach(s);
+    if (fromStart) {
+      show(s, false);
+      try { if (video.readyState >= 1) video.currentTime = 0; }
+      catch { /* A newly attached file naturally starts at zero. */ }
+    }
+    mode(s, 'loading'); updateButton();
+    let result;
+    try { result = video.play(); }
     catch (error) { fail(s, error); return; }
-    Promise.resolve(promise).then(() => {
-      if (token !== s.token || !s.active || !s.wantsPlay || inArtwork(s) || document.hidden) {
-        s.video.pause(); return;
-      }
-      s.loading = false;
-      if (s.video.readyState >= 2 && !s.video.paused) {
-        show(s, true); setMode(s, 'playing');
-        announce(s, 'Character motion playing once. Background music is unchanged.');
-      }
+    Promise.resolve(result).then(() => {
+      if (generation !== token || current !== s || !s.wantsPlay) return;
+      if (!mayPresent()) { video.pause(); mode(s, 'suspended'); updateButton(); return; }
+      if (validFrame(s) && !video.paused) { show(s, true); mode(s, 'playing'); }
       updateButton();
     }).catch(error => {
-      if (token !== s.token || !s.wantsPlay || error?.name === 'AbortError') return;
+      if (generation !== token || current !== s || !s.wantsPlay || error?.name === 'AbortError') return;
       if (error?.name === 'NotAllowedError') {
-        pause(s, 'blocked'); show(s, false);
-        announce(s, 'Static artwork is shown. Select Replay character motion to play.');
+        s.wantsPlay = false; video.pause(); show(s, false); mode(s, 'blocked');
+        announce('Original artwork is shown. Select Replay scene motion to play.'); updateButton();
       } else fail(s, error);
     });
   }
-  function syncArtwork(s) {
-    const next = inArtwork(s);
-    if (next === s.artwork) return;
-    s.artwork = next;
-    if (next) {
-      s.savedShowing = s.showing;
-      pause(s, 'artwork-static'); show(s, false);
-    } else {
-      // Returning from full-art mode never starts motion automatically.
-      const canRestore = s.savedShowing && !s.failed && (!preference.matches || s.userAllowed);
-      show(s, canRestore);
-      setMode(s, canRestore ? (s.ended ? 'ended' : 'paused') : 'static');
+  function reconcileEnvironment() {
+    const s = current;
+    if (!s) return;
+    if (!mayPresent()) {
+      token += 1; video.pause(); mode(s, 'suspended'); updateButton(); return;
     }
+    if (reduce.matches && !s.userAllowed) {
+      token += 1; s.wantsPlay = false; video.pause(); show(s, false);
+      mode(s, 'reduced-motion'); updateButton(); return;
+    }
+    if (s.wantsPlay && video.paused && !s.ended && !s.failed) play(s, false);
     updateButton();
   }
-  function reconcile() {
-    states.forEach(s => {
-      const active = visible(s);
-      if (active !== s.active) {
-        s.active = active;
-        if (active) {
-          s.userAllowed = false; s.savedShowing = false; show(s, false);
-          s.artwork = inArtwork(s);
-          if (s.artwork) { pause(s, 'artwork-static'); return; }
-          if (s.failed) { setMode(s, 'error'); return; }
-          playFromStart(s, false);
-        } else pause(s, 'off-page');
-      } else if (active) syncArtwork(s);
-    });
+  function setScene(nextIndex, nextStarted) {
+    if (!Number.isInteger(nextIndex) || nextIndex < 0 || nextIndex >= sections.length) return;
+    index = nextIndex; started = Boolean(nextStarted);
+    const next = started ? states.get(index + 1) : null;
+    if (current === next) { reconcileEnvironment(); return; }
+    release();
+    if (!next) return;
+    current = next;
+    next.userAllowed = false; next.failed = false; next.ended = false; next.wantsPlay = true;
+    show(next, false); mode(next, 'static');
+    if (reduce.matches) { next.wantsPlay = false; mode(next, 'reduced-motion'); }
+    else if (mayPresent()) play(next, true);
     updateButton();
   }
-  config.scenes.forEach(entry => {
-    const number = Number(entry.scene);
-    if (![3,13].includes(number) || states.some(s => s.number === number)) return;
-    const src = safeSource(entry.src);
-    const scene = document.querySelector('section.scene.s' + number);
-    const stage = scene?.querySelector('.cinematic-bg');
-    const poster = stage?.querySelector(':scope > img');
-    if (!src || !scene || !stage || !poster) return;
-    const video = stage.querySelector('video[data-character-motion-video]') || document.createElement('video');
-    video.id = 'character-motion-video-' + number;
-    video.className = 'cm-video';
-    video.muted = true; video.defaultMuted = true; video.volume = 0;
-    video.playsInline = true; video.preload = 'metadata';
-    video.loop = false; video.autoplay = false; video.controls = false;
-    video.disablePictureInPicture = true; video.disableRemotePlayback = true;
-    video.setAttribute('muted', ''); video.setAttribute('playsinline', '');
-    video.setAttribute('aria-hidden', 'true'); video.tabIndex = -1;
-    video.dataset.characterMotionSource = src.startsWith('data:') ? 'embedded-mp4' : src;
-    stage.classList.add('cm-stage');
-    stage.style.setProperty('--cm-video-fit', entry.fit === 'cover' && number !== 13 ? 'cover' : 'contain');
-    const s = {number,scene,stage,poster,video,active:false,artwork:false,mode:'static',
-      token:0,wantsPlay:false,loading:false,showing:false,savedShowing:false,
-      userAllowed:false,failed:false,ended:false};
-    states.push(s);
-    video.addEventListener('playing', () => {
-      if (!s.active || !s.wantsPlay || inArtwork(s) || document.hidden) { video.pause(); return; }
-      s.loading = false; show(s,true); setMode(s,'playing'); updateButton();
-    });
-    video.addEventListener('ended', () => {
-      s.wantsPlay = false; s.loading = false; s.ended = true;
-      // Keep the actual last decoded video frame. No loop, seek or CSS motion.
-      if (s.active && !inArtwork(s)) { show(s,true); setMode(s,'ended'); }
-      updateButton();
-    });
-    video.addEventListener('error', () => fail(s,video.error));
-    if (video.parentElement !== stage) stage.append(video);
-    if (video.getAttribute('src') !== src) video.src = src;
-    if (video.error) fail(s, video.error);
-    new MutationObserver(reconcile).observe(scene,{attributes:true,
-      attributeFilter:['class','hidden','aria-hidden','data-closing-mode']});
+
+  video.addEventListener('playing', () => {
+    const s = current;
+    if (!s || !validFrame(s)) return;
+    if (!s.wantsPlay || !mayPresent() || (reduce.matches && !s.userAllowed)) {
+      video.pause(); return;
+    }
+    show(s, true); mode(s, 'playing'); updateButton();
   });
-  if (!states.length) { button.remove(); status.remove(); toolbar.classList.remove('cm-toolbar'); return; }
+  video.addEventListener('ended', () => {
+    const s = current;
+    if (!s || !validFrame(s) || !video.ended) return;
+    s.ended = true; s.wantsPlay = false;
+    show(s, true); mode(s, 'ended'); updateButton();
+    announce('Scene motion has finished. The final frame is held.');
+  });
+  video.addEventListener('error', () => {
+    if (current && isAttached(current) && video.error) fail(current, video.error);
+  });
   button.addEventListener('click', event => {
     event.preventDefault(); event.stopPropagation();
-    const s = current(); if (!s) return;
-    if (s.wantsPlay) { pause(s,'paused'); announce(s,'Character motion paused.'); }
-    else playFromStart(s,true);
+    const s = current; if (!s) return;
+    if (s.wantsPlay && !video.paused) {
+      token += 1; s.wantsPlay = false; video.pause(); mode(s, 'paused');
+      announce('Scene motion paused.'); updateButton();
+    } else { s.userAllowed = true; play(s, true); }
   });
-  // Old deck controls use document capture for Space. Window capture wins first
-  // and preserves native button keyboard access without altering the controller.
+  // Prevent the older capture-phase deck keyboard handler from changing slides
+  // when Space/Enter operates this button.
   window.addEventListener('keydown', event => {
-    if (event.target !== button || ![' ','Enter'].includes(event.key)) return;
+    if (event.target !== button || ![' ', 'Enter'].includes(event.key)) return;
     event.preventDefault(); event.stopImmediatePropagation();
     if (!event.repeat) button.click();
-  },true);
+  }, true);
   window.addEventListener('keyup', event => {
-    if (event.target === button && [' ','Enter'].includes(event.key)) {
+    if (event.target === button && [' ', 'Enter'].includes(event.key)) {
       event.preventDefault(); event.stopImmediatePropagation();
     }
-  },true);
-  document.addEventListener('visibilitychange',reconcile);
-  document.addEventListener('closing:modechange',reconcile);
-  document.querySelectorAll('dialog').forEach(dialog =>
-    new MutationObserver(reconcile).observe(dialog,{attributes:true,attributeFilter:['open']}));
-  preference.addEventListener('change', () => {
-    states.forEach(s => {
-      s.userAllowed = false; s.savedShowing = false;
-      pause(s, preference.matches ? 'reduced-motion' : 'static'); show(s,false);
-    });
-    updateButton();
+  }, true);
+  document.addEventListener('presentation:scene', event => {
+    setScene(Number(event.detail?.index), Boolean(event.detail?.started));
   });
-  window.addEventListener('pagehide', () => states.forEach(s => pause(s,'off-page')));
-  reconcile();
+  // Verse/reflection/full-artwork only changes layout; keep the same movie and
+  // playhead. Never call play(fromStart) on a closing tab change.
+  document.addEventListener('closing:modechange', updateButton);
+  document.addEventListener('visibilitychange', reconcileEnvironment);
+  document.querySelectorAll('dialog').forEach(dialog => {
+    dialog.addEventListener('toggle', reconcileEnvironment);
+    dialog.addEventListener('close', reconcileEnvironment);
+    dialog.addEventListener('cancel', () => requestAnimationFrame(reconcileEnvironment));
+  });
+  // Fallback for browsers without dialog toggle events; no DOM observers.
+  document.addEventListener('click', event => {
+    if (event.target instanceof Element && event.target.closest('#help-button,#sources-button,#people-button')) {
+      requestAnimationFrame(reconcileEnvironment);
+    }
+  });
+  reduce.addEventListener('change', () => {
+    if (!current) return;
+    token += 1; current.userAllowed = false; current.wantsPlay = false;
+    video.pause(); show(current, false);
+    mode(current, reduce.matches ? 'reduced-motion' : 'static'); updateButton();
+  });
+  window.addEventListener('pagehide', release);
+  window.addEventListener('pageshow', () => { if (started && !current) setScene(index, true); });
+  if (index >= 0) setScene(index, started);
 })();
 
 </script>
